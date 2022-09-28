@@ -31,11 +31,27 @@ const updatePage = async () => {
   // TODO: Use either `map` and/or `filter` to extract some data from the array of fruit objects
   // For example, find "name of all fruits whose sugar > 15",
 
+  const filteredFruits = fruitsArray.filter((item) => {
+    return item.nutritions.calories < 100;
+  })
+
   // TODO: Create a new HTML element to display your data
 
+  const healthyFruits = filteredFruits.map((item) => {
+    return item.name;
+  }
+  )
+
+  const newElement = document.createElement('div');
+  newElement.innerHTML = "These are fruits under 100 calories: " + JSON.stringify(healthyFruits);
+  
   // TODO: Append your new element to the page
+  gallery.append(newElement);
 
 }
+
+
+
 
 // SAMPLE CODE of how to create and append a new HTML element to the page
 const exampleAddElement = () => {
